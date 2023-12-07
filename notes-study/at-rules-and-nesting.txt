@@ -1,0 +1,18 @@
+@use: importa, modulos estilos y funciones de otras hojas de estilos. la diferencia con @import es que import se encarga de hacer los estilos globales.
+@function: permite crear funciones personalizadas, sin embargo Sass cuenta con funciones ya existentes.
+@forward: Recibe como parametro una URL y nos ayuda a cargar los estilos de nuestra hoja de estilos, es muy importante hacer uso de @use para que los modulos esten disponibles en nuestra hoja de estilos.
+@extend: tiene que ver con el concepto de herencia.
+@at-root: se encarga de cargar nuestros estilos en el root del css.
+@include: nos ayuda a invocar los mixins.
+@error, @warn @debug: sirver para cuando hay un error, una advertencia o se quiere debugear, respectivamente
+@for, @if, @each, @while: tienen que ver con estructuras de control, se pueden usar dentro de una función
+
+Nesting:
+
+"Nesting" en CSS significa anidar selectores dentro de otros selectores.
+Se utiliza para estructurar y modular el código de estilo de manera organizada.
+Similar a organizar archivos en carpetas y subcarpetas para mantener todo en su lugar.
+Mejora la legibilidad y mantenibilidad del código CSS.
+Facilita la comprensión de la jerarquía y relación entre los estilos.
+Permite evitar la repetición de código al aplicar estilos específicos a elementos anidados.
+Una práctica útil para proyectos CSS más grandes y complejos.
