@@ -6,6 +6,20 @@ $queaternary-color: #FA9500;
 $font-stackl: 'IBM Plex Sans' , sans-serif; 
 $paragraph-size: 1.5em;
 
+@mixin flexCenter($direction,$content, $align){
+    display:flex;
+    flex-direction: $direction;
+    justify-content: $content;
+    align-items: $align;
+}
+
+@mixin buttonStyle{
+    button{
+        background: none;
+        border-style: none;
+    }
+}
+
 body {
     margin: 0px;
     padding: 0px;
@@ -16,8 +30,7 @@ body {
 
 nav{
     width: auto;
-    display: flex;
-    justify-content: space-between;
+    @include flexCenter(row,space-between ,center);
     color: $primary-text-color;
     padding: 15px;
 
@@ -28,25 +41,21 @@ nav{
     .icons{
         display: flex;
         gap: 15px;
-        button{
-            background: none;
-            border: none;
-        }
+        @include buttonStyle()
     }
 }
 
 article{
     color: $primary-text-color;
+    @include flexCenter(row,space-between ,center );
     width: auto;
     padding-left: 45px;
     padding-right: 45px;
     padding-top: 70px;
-    display: flex;
-    justify-content: space-between;
+    
 
     .info-main-section{
-        display: flex;
-        flex-direction: column;
+        @include flexCenter(column,space-evenly ,flex-start );
         padding-top: 50px;
         gap: 25px;
     }
@@ -59,6 +68,7 @@ article{
     p{
         font-size: 1.5em;
     }
+    @include buttonStyle;
     button{
         width: 12vw;
         padding: 20px;
@@ -67,6 +77,9 @@ article{
         border-radius: 35px;
         color: white;
         font-size: 1em;
+        &:hover{
+            transform: scale(1.1);
+        }
     }
     img{
         width: 25vw;
@@ -94,10 +107,8 @@ section{
         .card-section{
             display: flex;
             width: auto;
-            height: auto;
-            justify-content: center;
+            @include flexCenter(row, space-evenly ,center );
             flex-wrap: wrap;
-            align-items: center;
             column-gap: 200px;
             row-gap: 80px;
 
@@ -149,6 +160,55 @@ section{
             .product-card{
                 background-color: $tertiary-color;
                 color:white;
+            }
+        }
+    }
+}
+
+.about-us{
+    padding-bottom: 60px;
+    h2{
+        font-weight: bold;
+        padding-bottom: 60px;
+    }
+    .mission-section{
+        @include flexCenter(row, space-evenly,center );
+    }
+    .earth{
+        width: 30vw;
+        display: flex;
+        gap: 40px ;
+        color: #E86424;
+        img{
+            object-fit: contain;
+        }
+        p{
+            text-align: center;
+            font-size: $paragraph-size;
+
+        }
+    }
+    .innovation{
+        @extend .earth;
+    }
+
+}
+
+.gallery{
+    h2{
+        font-weight: bold;
+        padding-bottom: 60px;
+    }
+    .gallery-images{
+        @include flexCenter(row,space-between,center );
+        img{
+            width: 28vw;
+            height: 45vh;
+            object-fit: cover;
+            object-position: 5px 35%;
+            border-radius: 16px;
+            &:hover{
+                transform: scale(1.1);
             }
         }
     }
